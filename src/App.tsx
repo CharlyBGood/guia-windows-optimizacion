@@ -105,11 +105,6 @@ function App() {
             <p>Te deja una "red de seguridad" antes de tocar cosas.</p>
           </InfoBox>
 
-          <img
-            src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Sistema de restauración de Windows"
-            className="w-full max-w-2xl rounded-lg border-4 border-cyan-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">1.1 Crear un punto de restauración (recomendado)</h4>
           <ol className="list-decimal list-inside space-y-2 mb-6 ml-4">
@@ -138,11 +133,6 @@ function App() {
           title="Limpieza segura (sin romper nada)"
           icon={<HardDrive className="w-8 h-8" />}
         >
-          <img
-            src="https://images.pexels.com/photos/3962640/pexels-photo-3962640.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Limpieza de disco"
-            className="w-full max-w-2xl rounded-lg border-4 border-green-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">2.1 Desinstalar programas que no usás</h4>
           <ol className="list-decimal list-inside space-y-2 mb-6 ml-4">
@@ -210,11 +200,6 @@ function App() {
           title="Inicio más rápido (lo que más se nota)"
           icon={<Zap className="w-8 h-8" />}
         >
-          <img
-            src="https://images.pexels.com/photos/3194519/pexels-photo-3194519.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Velocidad y rendimiento"
-            className="w-full max-w-2xl rounded-lg border-4 border-yellow-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">3.1 Desactivar programas que se abren solos</h4>
           <ol className="list-decimal list-inside space-y-2 mb-6 ml-4">
@@ -272,11 +257,6 @@ function App() {
           title="Almacenamiento: SSD vs HDD (clave)"
           icon={<Server className="w-8 h-8" />}
         >
-          <img
-            src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Disco duro SSD"
-            className="w-full max-w-2xl rounded-lg border-4 border-orange-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">5.1 Saber qué disco tenés</h4>
           <ol className="list-decimal list-inside space-y-2 mb-6 ml-4">
@@ -297,11 +277,6 @@ function App() {
           title="Seguridad sin bajar el rendimiento"
           icon={<Shield className="w-8 h-8" />}
         >
-          <img
-            src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Seguridad informática"
-            className="w-full max-w-2xl rounded-lg border-4 border-red-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">6.1 Antivirus</h4>
           <ul className="list-disc list-inside space-y-2 mb-6 ml-4">
@@ -402,11 +377,6 @@ function App() {
           title="Navegador: muchas veces el lento es el browser"
           icon={<Globe className="w-8 h-8" />}
         >
-          <img
-            src="https://images.pexels.com/photos/7861545/pexels-photo-7861545.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Navegador web"
-            className="w-full max-w-2xl rounded-lg border-4 border-blue-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">8.1 Extensiones</h4>
           <ul className="list-disc list-inside space-y-2 mb-6 ml-4">
@@ -447,11 +417,6 @@ function App() {
             <p>Cuelgues, errores raros, archivos corruptos, pantallas azules, o después de apagados bruscos.</p>
           </InfoBox>
 
-          <img
-            src="https://images.pexels.com/photos/2832019/pexels-photo-2832019.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
-            alt="Reparación de sistema"
-            className="w-full max-w-2xl rounded-lg border-4 border-red-400 my-6"
-          />
 
           <h4 className="text-lg font-bold text-yellow-300 mb-3">10.1 SFC (reparar archivos del sistema)</h4>
           <ol className="list-decimal list-inside space-y-2 mb-4 ml-4">
