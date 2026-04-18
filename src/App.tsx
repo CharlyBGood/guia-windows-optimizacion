@@ -41,7 +41,7 @@ function App() {
     <div className="min-h-screen bg-portfolio-deep text-portfolio-text-light">
       <Header />
 
-      <main className="max-w-6xl mx-auto px-4 py-8 relative z-10">
+      <main className="max-w-6xl mx-auto px-4 pt-8 pb-24 relative z-10">
         <div className="panel mb-8 p-6 md:p-8">
           <div className="flex items-start gap-4 mb-4">
             <HardDrive className="w-7 h-7 text-portfolio-orange flex-shrink-0 mt-1" />
@@ -633,8 +633,9 @@ function App() {
           </ul>
         </Section>
 
-        <Footer />
       </main>
+
+      <Footer />
     </div>
   );
 }
