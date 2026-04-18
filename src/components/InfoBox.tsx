@@ -8,27 +8,32 @@ interface InfoBoxProps {
 }
 
 export default function InfoBox({ type, icon, title, children }: InfoBoxProps) {
-  const colors = {
-    info: 'border-cyan-500 bg-cyan-950/20',
-    warning: 'border-orange-500 bg-orange-950/20',
-    success: 'border-green-500 bg-green-950/20',
-  };
+  const styles = {
+    info: {
+      box: 'border-blue-500/40 bg-blue-500/5',
+      icon: 'text-blue-400',
+    },
+    warning: {
+      box: 'border-portfolio-orange/50 bg-portfolio-orange/5',
+      icon: 'text-portfolio-orange',
+    },
+    success: {
+      box: 'border-emerald-500/40 bg-emerald-500/5',
+      icon: 'text-emerald-400',
+    },
+  } as const;
 
-  const iconColors = {
-    info: 'text-cyan-400 w-6 h-6',
-    warning: 'text-orange-400 w-6 h-6',
-    success: 'text-green-400 w-6 h-6',
-  };
+  const s = styles[type];
 
   return (
-    <div className={`arcade-box-inner ${colors[type]} p-4 mb-6 border-4`}>
+    <div className={`panel-inner ${s.box} p-4 mb-6 border`}>
       <div className="flex items-start gap-3">
-        <div className={`flex-shrink-0 ${iconColors[type]} mt-1`}>
+        <div className={`flex-shrink-0 w-6 h-6 mt-0.5 ${s.icon}`}>
           {icon}
         </div>
         <div className="flex-1">
-          {title && <h4 className="font-bold mb-2 text-lg">{title}</h4>}
-          <div className="text-gray-100">
+          {title && <h4 className="font-semibold mb-2 text-base text-portfolio-text-light">{title}</h4>}
+          <div className="text-portfolio-text-light/90 text-sm md:text-base leading-relaxed">
             {children}
           </div>
         </div>

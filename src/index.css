@@ -1,134 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --portfolio-deep: #0c070f;
+    --portfolio-dark: #150a1a;
+    --portfolio-base: #1a0f20;
+    --portfolio-medium: #2a1530;
+    --portfolio-accent: #3a2540;
+    --portfolio-gradient-1: #4a2560;
+    --portfolio-gradient-2: #5a3570;
+    --portfolio-gradient-3: #6a3590;
+    --portfolio-gradient-4: #7a45a0;
+    --portfolio-text: #c8b8d8;
+    --portfolio-text-light: #e0d0f0;
+    --portfolio-light: #cdb7e4;
+    --portfolio-orange: #e7762b;
+  }
+
   body {
-    background-color: #000;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    background-color: var(--portfolio-deep);
+    color: var(--portfolio-text-light);
+    font-family: 'Poppins', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #fbbf24 #1f2937;
+    scrollbar-color: rgb(139 92 246 / 0.5) var(--portfolio-dark);
   }
 
   *::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
 
   *::-webkit-scrollbar-track {
-    background: #1f2937;
-    border-left: 2px solid #fbbf24;
+    background: var(--portfolio-dark);
   }
 
   *::-webkit-scrollbar-thumb {
-    background: #fbbf24;
-    border: 2px solid #000;
+    background: rgb(139 92 246 / 0.5);
+    border-radius: 4px;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background: #f59e0b;
+    background: rgb(139 92 246 / 0.7);
+  }
+
+  code {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 }
 
 @layer components {
-  .arcade-scanlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  /* Gradiente de marca SinapsiaLab: pink → yellow → blue */
+  .gradient-link {
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500;
+    @apply relative drop-shadow-lg hover:drop-shadow-xl;
+    @apply before:content-[''] before:absolute before:left-0 before:-bottom-1 before:w-full before:h-0.5;
+    @apply before:bg-gradient-to-r before:from-pink-500 before:via-yellow-400 before:to-blue-500;
+    @apply before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform before:duration-300;
+  }
+
+  .gradient-text {
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500;
+  }
+
+  /* Efecto de glow con el gradiente de marca */
+  .gradient-glow {
+    position: relative;
+    overflow: visible;
+  }
+
+  .gradient-glow::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    z-index: -1;
+    border-radius: 1.5rem;
     pointer-events: none;
-    z-index: 999;
-    background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.08),
-      rgba(0, 0, 0, 0.08) 1px,
-      transparent 1px,
-      transparent 2px
-    );
+    background: linear-gradient(90deg, #ec4899, #facc15, #3b82f6);
+    filter: blur(24px) brightness(1.2);
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
   }
 
-  .arcade-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
+  .gradient-glow:hover::after {
+    opacity: 0.9;
   }
 
-  .arcade-box {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border: 3px solid #22d3ee;
+  /* Cajas de contenido del tutorial */
+  .panel {
+    background: linear-gradient(135deg, var(--portfolio-base) 0%, var(--portfolio-medium) 100%);
+    border: 1px solid var(--portfolio-accent);
+    border-radius: 1rem;
     box-shadow:
-      0 0 10px rgba(34, 211, 238, 0.2),
-      inset 0 0 20px rgba(0, 0, 0, 0.3);
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 20px 60px -20px rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
   }
 
-
-  .arcade-box-inner {
-    border-radius: 4px;
-    position: relative;
-  }
-
-  .arcade-title {
-    font-family: 'Press Start 2P', cursive;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  }
-
-  .arcade-subtitle {
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .pixel-text {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-  }
-
-
-  .arcade-button {
-    padding: 0.75rem 1.5rem;
-    font-weight: 800;
-    font-size: 1rem;
-    border: 3px solid #fbbf24;
-    border-radius: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .panel-glow {
     box-shadow:
-      0 4px 0 #78350f,
-      0 0 20px rgba(251, 191, 36, 0.4);
-    transition: all 0.2s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 0 0 1px rgba(231, 118, 43, 0.08),
+      0 20px 60px -20px rgba(0, 0, 0, 0.8),
+      0 0 40px -10px rgba(122, 69, 160, 0.35);
   }
 
-  .arcade-button:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 6px 0 #78350f,
-      0 0 30px rgba(251, 191, 36, 0.6);
+  .panel-inner {
+    background: rgba(12, 7, 15, 0.55);
+    border: 1px solid var(--portfolio-accent);
+    border-radius: 0.75rem;
   }
 
-  .arcade-button:active {
-    transform: translateY(2px);
-    box-shadow:
-      0 2px 0 #78350f,
-      0 0 10px rgba(251, 191, 36, 0.3);
+  /* Botones SinapsiaLab */
+  .sinapsia-button {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 select-none;
+    background: var(--portfolio-gradient-3);
+    color: var(--portfolio-text-light);
+  }
+
+  .sinapsia-button:hover {
+    background: var(--portfolio-gradient-1);
+    transform: translateY(-1px);
+  }
+
+  .sinapsia-button-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 select-none;
+    border: 1px solid var(--portfolio-accent);
+    color: var(--portfolio-text-light);
+    background: transparent;
+  }
+
+  .sinapsia-button-outline:hover {
+    border-color: var(--portfolio-orange);
+    color: var(--portfolio-orange);
   }
 }

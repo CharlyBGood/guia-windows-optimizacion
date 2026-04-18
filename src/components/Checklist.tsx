@@ -19,25 +19,28 @@ export default function Checklist({ items }: ChecklistProps) {
   };
 
   return (
-    <div className="bg-slate-800/50 border-3 border-yellow-500 p-6 rounded">
-      <ul className="space-y-3">
-        {items.map((item, index) => (
-          <li key={index}>
-            <button
-              onClick={() => toggleItem(index)}
-              className="flex items-start gap-3 w-full text-left group hover:bg-yellow-500/10 p-2 rounded transition-colors"
-            >
-              {checked.has(index) ? (
-                <CheckSquare className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-              ) : (
-                <Square className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5 group-hover:text-green-400" />
-              )}
-              <span className={checked.has(index) ? 'line-through text-gray-400' : 'text-gray-100'}>
-                {item}
-              </span>
-            </button>
-          </li>
-        ))}
+    <div className="panel-inner p-5">
+      <ul className="space-y-2">
+        {items.map((item, index) => {
+          const isDone = checked.has(index);
+          return (
+            <li key={index}>
+              <button
+                onClick={() => toggleItem(index)}
+                className="flex items-start gap-3 w-full text-left p-2 rounded-md hover:bg-portfolio-medium/40 transition-colors"
+              >
+                {isDone ? (
+                  <CheckSquare className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                ) : (
+                  <Square className="w-5 h-5 text-portfolio-text flex-shrink-0 mt-0.5" />
+                )}
+                <span className={isDone ? 'line-through text-portfolio-text/60' : 'text-portfolio-text-light'}>
+                  {item}
+                </span>
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

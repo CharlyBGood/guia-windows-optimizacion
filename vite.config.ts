@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+// El sitio se sirve bajo tutoriales.sinapsialab.com/windows-repara/
 export default defineConfig({
+  base: '/windows-repara/',
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
