@@ -10,18 +10,21 @@ export default function Header() {
           href="https://sinapsialab.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-2.5 group"
           aria-label="SinapsiaLab"
         >
           <img
-            src="https://res.cloudinary.com/dr8pwzxzn/image/upload/v1751256447/SinapsiaLabThinn8_lehxp5.png"
+            src="https://res.cloudinary.com/dr8pwzxzn/image/upload/v1759686676/brainball_gsjoy9.png"
             alt="SinapsiaLab"
             className="h-9 md:h-10 w-auto object-contain"
             loading="eager"
-            width="180"
-            height="60"
+            width="40"
+            height="40"
           />
-          <span className="hidden sm:inline text-sm text-portfolio-text group-hover:text-portfolio-orange transition-colors">
+          <span className="font-semibold tracking-tight text-portfolio-text-light text-base md:text-lg leading-none">
+            SinapsiaLab
+          </span>
+          <span className="hidden sm:inline text-xs uppercase tracking-[0.18em] text-portfolio-text group-hover:text-portfolio-orange transition-colors leading-none pl-2 ml-1 border-l border-portfolio-accent">
             tutoriales
           </span>
         </a>

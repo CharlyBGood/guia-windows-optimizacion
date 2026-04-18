@@ -70,7 +70,7 @@
     @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500;
   }
 
-  /* Efecto de glow con el gradiente de marca */
+  /* Efecto de glow con el gradiente de marca: neón en movimiento */
   .gradient-glow {
     position: relative;
     overflow: visible;
@@ -79,18 +79,40 @@
   .gradient-glow::after {
     content: '';
     position: absolute;
-    inset: -16px;
+    inset: -12px;
     z-index: -1;
     border-radius: 1.5rem;
     pointer-events: none;
-    background: linear-gradient(90deg, #ec4899, #facc15, #3b82f6);
-    filter: blur(24px) brightness(1.2);
-    opacity: 0.55;
+    background: linear-gradient(
+      90deg,
+      rgba(236, 72, 153, 0.0) 0%,
+      rgba(236, 72, 153, 0.55) 20%,
+      rgba(250, 204, 21, 0.55) 50%,
+      rgba(59, 130, 246, 0.55) 80%,
+      rgba(59, 130, 246, 0.0) 100%
+    );
+    background-size: 220% 100%;
+    background-repeat: no-repeat;
+    filter: blur(20px);
+    opacity: 0.28;
+    animation: gradient-neon-sweep 6s ease-in-out infinite;
     transition: opacity 0.3s ease;
   }
 
   .gradient-glow:hover::after {
-    opacity: 0.9;
+    opacity: 0.5;
+  }
+
+  @keyframes gradient-neon-sweep {
+    0%   { background-position: -40% 0; }
+    50%  { background-position: 140% 0; }
+    100% { background-position: -40% 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-glow::after {
+      animation: none;
+    }
   }
 
   /* Cajas de contenido del tutorial */
